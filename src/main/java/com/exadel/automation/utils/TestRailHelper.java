@@ -10,7 +10,7 @@ import java.net.URL;
 
 public class TestRailHelper {
 
-    private static PropertiesLoader propertiesLoader = new PropertiesLoader();
+    /*private static PropertiesLoader propertiesLoader = new PropertiesLoader();
 
     public static TestRailService createTestRailService(String endpoint, String username, String password) throws MalformedURLException {
         URL apiEndpoint = new URL(endpoint);
@@ -24,5 +24,5 @@ public class TestRailHelper {
         testRunCreator.setName(project.getName() + " #" + propertiesLoader.getJenkinsBuildNumber());
         testRunCreator.setIncludeAll(isIncludeAll);
         return testRailService.addTestRun(1, testRunCreator);
-    }
+    }*/
 }

@@ -24,8 +24,6 @@ import java.nio.file.Paths;
 import java.util.Properties;
 
 import static com.exadel.automation.WebDriverManager.setupWebDriver;
-import static com.exadel.automation.utils.TestRailHelper.addTestRun;
-import static com.exadel.automation.utils.TestRailHelper.createTestRailService;
 
 /**
  * Base class for TestNG-based test classes
@@ -54,9 +52,9 @@ public class TestBase {
         capabilities = config.getCapabilities();
         propertiesLoader = new PropertiesLoader();
         setupWebDriver(config);
-        testRailService = createTestRailService(propertiesLoader.getTestRailEndPoint(), propertiesLoader.getTestRailUsername(), propertiesLoader.getTestRailPassword());
+     /*   testRailService = createTestRailService(propertiesLoader.getTestRailEndPoint(), propertiesLoader.getTestRailUsername(), propertiesLoader.getTestRailPassword());
         testRun = addTestRun(testRailService, true);
-        testRunId = testRun.getId();
+        testRunId = testRun.getId();*/
 
         env = new Properties();
         env.setProperty("Base URL", baseUrl);
@@ -97,7 +95,7 @@ public class TestBase {
     @AfterMethod
     @Step("Add Test rail result")
     public void addTestRailResult(ITestResult result) {
-        int testsSize = testRailService.getTestRun(testRunId).getTests().size();
+       /* int testsSize = testRailService.getTestRun(testRunId).getTests().size();
         int testId = testRailService.getTestRun(testRunId).getTests().get(Integer.parseInt(testCaseId) - 1).getId();
         //testResult.setTestId(testId);
         if (result.isSuccess()) {
@@ -108,7 +106,7 @@ public class TestBase {
             testResult.setComment(testResultMessage());
             testResult.setDefects(StringUtils.abbreviate(result.getThrowable().toString().replaceAll("java.lang.AssertionError: ", ""), 240));
         }
-        testRailService.addTestResult(testId, testResult);
+        testRailService.addTestResult(testId, testResult);*/
     }
 
     public WebDriver getDriver() {
